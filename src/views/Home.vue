@@ -3,7 +3,11 @@
     <v-container>
       <v-dialog fullscreen v-model="modal">
         <v-card class="pa-10">
+          <div class="d-flex justify-space-between">
           <div class="title mb-5">Add a New Chart</div>
+          <v-btn @click="modal = !modal" text right="">close</v-btn>
+
+          </div>
           <v-form>
             Title:
             <v-text-field v-model="newChart.title" required placeholder="Title" />Content:

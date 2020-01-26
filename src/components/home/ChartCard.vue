@@ -13,7 +13,6 @@
         transition="scale-transition"
         offset-y
         max-width="290px"
-        min-width="290px"
       >
         <template v-slot:activator="{ on }">
           <v-text-field
@@ -30,7 +29,7 @@
           <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
         </v-date-picker>
       </v-menu>
-      <Chart :height="150" v-if="data" :chartData="data" :options="chartOptions" />
+      <Chart :height="100"  v-if="data" :chartData="data" :options="chartOptions" />
     </v-card>
   </div>
 </template>
