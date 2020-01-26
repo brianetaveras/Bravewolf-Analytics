@@ -29,7 +29,7 @@
           <v-btn text color="primary" @click="$refs.menu.save(date)">OK</v-btn>
         </v-date-picker>
       </v-menu>
-      <Chart :height="100"  v-if="data" :chartData="data" :options="chartOptions" />
+      <Chart :height="150"  v-if="data" :chartData="data" :options="chartOptions" />
     </v-card>
   </div>
 </template>
