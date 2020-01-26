@@ -8,6 +8,7 @@
             <v-text-field v-model="newChart.title" required placeholder="Title" />Content:
             <v-select :items="contentTypes" v-model="newChart.content" placeholder="Content" />Color:
             <v-color-picker class="my-4" v-model="newChart.color"></v-color-picker>
+            <div class="red--text" v-if="feedback">{{feedback}}</div>
             <v-btn @click="addChart()" class="white--text" color="#2B78F7">Add</v-btn>
           </v-form>
         </v-card>
@@ -64,7 +65,8 @@ export default {
         title: "",
         content: "",
         color: ""
-      }
+      },
+      feedback: ""
     };
   },
   created() {
@@ -74,17 +76,28 @@ export default {
   mounted() {},
   methods: {
     addChart() {
-      localStorage.setItem(
-        "charts",
-        JSON.stringify([...this.charts, this.newChart])
-      );
-      this.charts = [...this.charts, this.newChart];
-      this.modal = false;
+      if (this.newChart.title && this.newChart.content && this.newChart.color) {
+        this.feedback = ''
+        localStorage.setItem(
+          "charts",
+          JSON.stringify([...this.charts, this.newChart])
+        );
+        this.charts = [...this.charts, this.newChart];
+        this.modal = false;
+        this.newChart = {
+          id: Date.now(),
+          title: "",
+          content: "",
+          color: ""
+        }; 
+      } else {
+        this.feedback = "All fields must be filled"
+      }
     },
     removeChart(id) {
       const filtered = this.charts.filter(chart => chart.id !== id);
-      localStorage.setItem('charts', JSON.stringify(filtered))
-      this.charts = filtered
+      localStorage.setItem("charts", JSON.stringify(filtered));
+      this.charts = filtered;
       console.log(filtered);
     }
   }
