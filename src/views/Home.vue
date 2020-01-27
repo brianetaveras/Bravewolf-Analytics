@@ -20,17 +20,16 @@
       </v-dialog>
       <div class="title mb-5">
         Analytics Dashboard
-        <v-btn @click="modal = !modal" class="white--text" x-small color="#2B78F7">Add</v-btn>
+        <!-- <v-btn @click="modal = !modal" class="white--text" x-small color="#2B78F7">Add</v-btn> -->
       </div>
       <ChartCard content="playedCount" title="Daily Active Users (DAU)" />
       <v-layout wrap>
-        <v-flex v-for="(chart, index) in charts" :key="index" s12 md12 lg6>
+        <v-flex v-for="(chart, index) in contentTypes" :key="index" s12 md12 lg6>
           <ChartCard
-            :content="chart.content"
-            :title="chart.title"
-            :color="chart.color"
+            :content="chart"
+            :title="chart"
             :removeChart="removeChart"
-            :id="chart.id"
+            :id="index"
           />
         </v-flex>
       </v-layout>
@@ -60,7 +59,6 @@ export default {
         "playedKills",
         "playedRegister",
         "playedEsia",
-        "playedCountry",
         "playedDailyCheck",
         "playedCashShop",
         "playedKrombieIsland"
