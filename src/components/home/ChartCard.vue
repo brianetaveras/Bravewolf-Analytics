@@ -62,7 +62,7 @@ export default {
   methods: {
     getData() {
       const month = parseInt(this.date.split("-")[1], 10);
-      axios.get("https://darkstory2d.com/assets/2020.json").then(res => {
+      axios.get("https://darkstory2d.com/assets/2019.json").then(res => {
         const data = res.data[month - 1];
         this.data = {
           labels: data.Month.Day.map(el => el.dateName),
