@@ -109,7 +109,7 @@ export default {
 
 <style lang="less">
 .home {
-  margin-top: 70px;
+  // margin-top: 70px;
   background: #f6f7fb;
   height: 100%;
 }

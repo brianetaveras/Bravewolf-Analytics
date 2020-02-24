@@ -1,18 +1,18 @@
 <template>
   <v-app>
-    <Navigation/>
+    <!-- <Navigation/> -->
     <router-view />
   </v-app>
 </template>
 
 <script>
-import Navigation from './components/layout/Navigation';
+// import Navigation from './components/layout/Navigation';
 
 export default {
   name: 'App',
 
   components: {
-    Navigation
+    // Navigation
   },
 
   data: () => ({

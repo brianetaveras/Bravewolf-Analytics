@@ -36,6 +36,7 @@
 
 <script>
 import Chart from "@/components/analytics/Chart";
+import VARIABLES from "@/variables.js";
 import axios from "axios";
 export default {
   name: "chart-card",
@@ -62,15 +63,16 @@ export default {
   methods: {
     getData() {
       const month = parseInt(this.date.split("-")[1], 10);
-      axios.get("https://darkstory2d.com/assets/2019.json").then(res => {
-        const data = res.data[month - 1];
+
+      axios.get(String.prototype.concat(VARIABLES.URLWEB,"analytics/dso/date/",this.date) ).then(res => {
+        const DATA = res.data.data;
         this.data = {
-          labels: data.Month.Day.map(el => el.dateName),
+          labels: DATA.Month.Day.map(el => el.dateName),
           datasets: [
             {
               label: this.title,
               backgroundColor: this.color || "rgba(43,120,247, 0.4)",
-              data: data.Month.Day.map(el => el[this.content])
+              data: DATA.Month.Day.map(el => el[this.content])
             }
           ]
         };
