@@ -1,23 +1,7 @@
 <template>
   <div class="home">
     <v-container>
-      <v-dialog fullscreen v-model="modal">
-        <v-card class="pa-10">
-          <div class="d-flex justify-space-between">
-          <div class="title mb-5">Add a New Chart</div>
-          <v-btn @click="modal = !modal" text right="">close</v-btn>
-
-          </div>
-          <v-form>
-            Title:
-            <v-text-field v-model="newChart.title" required placeholder="Title" />Content:
-            <v-select :items="contentTypes" v-model="newChart.content" placeholder="Content" />Color:
-            <v-color-picker class="my-4" v-model="newChart.color"></v-color-picker>
-            <div class="red--text" v-if="feedback">{{feedback}}</div>
-            <v-btn @click="addChart()" class="white--text" color="#2B78F7">Add</v-btn>
-          </v-form>
-        </v-card>
-      </v-dialog>
+      
       <div class="title mb-5">
         Analytics Dashboard
         <!-- <v-btn @click="modal = !modal" class="white--text" x-small color="#2B78F7">Add</v-btn> -->
