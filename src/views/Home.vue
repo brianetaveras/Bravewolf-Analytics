@@ -61,7 +61,10 @@ export default {
         "playedEsia",
         "playedDailyCheck",
         "playedCashShop",
-        "playedKrombieIsland"
+        "playedKrombieIsland",
+        "shopPurchases",
+        "playedEnhancement"
+
       ],
       newChart: {
         id: Date.now(),
